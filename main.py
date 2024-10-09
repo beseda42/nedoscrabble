@@ -137,8 +137,12 @@ def game_eng():
             if event.type == pygame.KEYDOWN and need_input:
                 if event.key == pygame.K_BACKSPACE:
                     input_text = input_text[:-1]
+                elif event.key == pygame.K_RETURN:
+                    input_text = count_eng(input_text)
+                    need_input = False
                 else:
-                    input_text += event.unicode
+                    if event.key != pygame.K_SPACE:
+                        input_text += event.unicode
             if event.type == pygame.USEREVENT and event.button == back_button:
                 main_menu_eng()
             if event.type == pygame.USEREVENT and event.button == language_button:
@@ -206,8 +210,12 @@ def game_ru():
             if event.type == pygame.KEYDOWN and need_input:
                 if event.key == pygame.K_BACKSPACE:
                     input_text = input_text[:-1]
+                elif event.key == pygame.K_RETURN:
+                    input_text = count_ru(input_text)
+                    need_input = False
                 else:
-                    input_text += event.unicode
+                    if event.key != pygame.K_SPACE:
+                        input_text += event.unicode
             if event.type == pygame.USEREVENT and event.button == language_button:
                 game_eng()
             if event.type == pygame.USEREVENT and event.button == back_button:
